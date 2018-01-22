@@ -5,6 +5,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.graphics.VertexAttributes;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Material;
@@ -16,6 +17,8 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.attributes.FloatAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
+import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Vector3;
 
 import componentes.ModeloComponente;
 import componentes.SistemaRenderizado;
@@ -49,7 +52,7 @@ public class Mundo {
                 new Entity().add(
                         new ModeloComponente(
                                 new ModelBuilder()
-                                        .createBox(50f,50f,50f,new Material(ColorAttribute.createDiffuse(Color.BLUE)),VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal),0f,0f,0f)));
+                                        .createBox(20f,20f,20f,new Material(ColorAttribute.createDiffuse(Color.BLUE)),VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal),0f,0f,0f)));
 
         motor.addSystem(new SistemaRenderizado(renderizador,entorno));
     }
@@ -57,11 +60,15 @@ public class Mundo {
 
     private void iniciarCamara(){
 
-        camara=new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
-        camara.position.set(30f, 30f, 30f);
+        camara=new OrthographicCamera(30,30*(Gdx.graphics.getHeight()/Gdx.graphics.getWidth()));
+
+        camara.position.set(camara.viewportWidth/2f, camara.viewportHeight/2f, 0);
         camara.lookAt(0f,0f,0f);
-        camara.near=0.3f;
-        camara.far=100f;
+//        camara.rotate(Vector3.X,20);
+        //camara.near=1f;
+        //camara.far=1000f;
+        //camara.setToOrtho(true);
+        //camara.zoom=1;
         camara.update();
     }
 
@@ -88,7 +95,7 @@ public class Mundo {
 
     /*Metodo que cambia el campo de vision de la camara
     * */
-    public void resize(int w,int h){
+    public void resize(float w,float h){
 
         camara.viewportWidth=w;
         camara.viewportHeight=h;
@@ -100,8 +107,13 @@ public class Mundo {
     * */
     public void render(float delta){
 
+       // camara.rotate(20);
+       // camara.update();
 
         renderizador.begin(camara);
+       //ModeloComponente entity = motor.getEntities().first().getComponent(ModeloComponente.class);
+      // entity.instancia.transform.setToTranslation(50f,10f,100f);
+
         motor.update(delta);
         renderizador.end();
     }

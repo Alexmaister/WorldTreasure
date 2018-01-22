@@ -34,6 +34,7 @@ public class SistemaRenderizado extends EntitySystem {
         for(Entity e:entidades){
 
             renderizador.render(e.getComponent(ModeloComponente.class).instancia,entorno);
+
         }
     }
 
