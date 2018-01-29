@@ -12,6 +12,13 @@ import com.badlogic.gdx.graphics.g3d.ModelBatch;
  * Created by maister on 18/01/18.
  */
 
+/*Interfaz SistemaRenderizado
+
+clase que iterara por todos los elementos para dibujarlos en pantalla
+InmutableArray<Entity> referencia a las entidades del sistema
+referencia a todas las entidades filtradas
+Cojera solo el modelocomponente necesario para dibujar :)
+* */
 public class SistemaRenderizado extends EntitySystem {
 
     private ImmutableArray<Entity> entidades;

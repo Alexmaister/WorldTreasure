@@ -8,8 +8,22 @@ import com.badlogic.gdx.graphics.GL20;
 
 import pantallas.PantallaJuego;
 
+/*Interfaz Juego
+
+	Applicacion inicial del motor libgdx,
+	 esta es la clase inicial del juego, sera llamada desde los
+	 diferentes lanzadores(aplicaciones lanzadoras ) para diferente dispositivos
+
+	 propiedades :
+
+	 Pantalla: la pantalla del juego donde podremos ver todo lo que pasa :)
+* */
 public class Juego extends ApplicationAdapter {
 
+	//por defecto en disppositivos android
+
+	public static final float VIRTUAL_WIDTH=960;
+	public static final float VIRTUAL_HEIGHT=540;
 	//Pantalla que divisara el juego (MyGdxGame)
 	private Screen pantalla;
 

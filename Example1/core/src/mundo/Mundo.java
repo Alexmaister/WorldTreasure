@@ -5,27 +5,19 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.PerspectiveCamera;
+
 import com.badlogic.gdx.graphics.VertexAttributes;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Material;
-import com.badlogic.gdx.graphics.g3d.Model;
-import com.badlogic.gdx.graphics.g3d.ModelBatch;
-import com.badlogic.gdx.graphics.g3d.ModelInstance;
-import com.badlogic.gdx.graphics.g3d.RenderableProvider;
-import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
-import com.badlogic.gdx.graphics.g3d.attributes.FloatAttribute;
-import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
-import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
-import com.badlogic.gdx.math.Frustum;
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Vector;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.viewport.FillViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
 
-import org.ietf.jgss.GSSException;
+import com.badlogic.gdx.graphics.g3d.ModelBatch;
+
+import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
+
+import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
+
+import com.badlogic.gdx.math.Vector3;
+
 
 import componentes.ModeloComponente;
 import componentes.SistemaRenderizado;
@@ -60,13 +52,13 @@ public class Mundo {
                 new Entity().add(
                         new ModeloComponente(
                                 new ModelBuilder()
-                                        .createBox(50f,50f,50f,new Material(ColorAttribute.createDiffuse(Color.RED)),VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal),0f,50f,0f)));
+                                        .createBox(50f,50f,50f,new Material(ColorAttribute.createDiffuse(Color.RED)),VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal),0f,25f,0f)));
 
         motor.addEntity(
                 new Entity().add(
                         new ModeloComponente(
                                 new ModelBuilder()
-                                        .createBox(20000f,1f,20000f,new Material(ColorAttribute.createDiffuse(Color.BLUE)),VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal),0f,0f,0f)));
+                                        .createBox(2000f,1f,2000f,new Material(ColorAttribute.createDiffuse(Color.BLUE)),VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal),0f,0f,0f)));
 
 
         motor.addSystem(new SistemaRenderizado(renderizador,entorno));
