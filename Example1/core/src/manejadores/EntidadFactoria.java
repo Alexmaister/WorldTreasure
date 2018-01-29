@@ -2,6 +2,7 @@ package manejadores;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.g3d.Model;
+import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.BoundingBox;
 import com.badlogic.gdx.physics.bullet.collision.btBoxShape;
@@ -62,5 +63,10 @@ public class EntidadFactoria {
 
         //la devolvemos
         return entidad;
+    }
+
+    static{
+
+        modelBuilder=new ModelBuilder();
     }
 }

@@ -67,15 +67,14 @@ public class Mundo {
 
     private void iniciarCamara(){
 
-        camara=new OrthographicCamera();
+        camara=new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
 
-        camara.position.set(40f ,200f, 40f);
-        camara.up.set(0,1,0);
+        camara.position.set(70f ,200f, -10f);
+        //camara.up.set(0,1,0);
         camara.lookAt(0f,0f,0f);
 
-        //camara.rotate(Vector3.,10);
         camara.near=0.3f;
-        camara.far=10000f;
+        camara.far=60000f;
         //camara.setToOrtho(true, Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         //camara.zoom= (float) 2;
         camara.update();
@@ -131,11 +130,11 @@ public class Mundo {
             Vector3 posicion=new Vector3();
 
             entity.instancia.transform.getTranslation(posicion);
-            posicion.x+=10;
+            //posicion.x+=10;
             posicion.z-=10;
 
             //posicion.z-=10;
-            camara.position.x+=10;
+           // camara.position.x+=10;
             camara.position.z-=10;
             camara.update();
             entity.instancia.transform.setTranslation(posicion.x,posicion.y,posicion.z);
