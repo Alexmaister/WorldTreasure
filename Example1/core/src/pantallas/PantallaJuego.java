@@ -1,8 +1,11 @@
 package pantallas;
 
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.mygdx.game.Juego;
 import mundo.Mundo;
+import sun.font.CoreMetrics;
 
 /**
  * Created by maister on 18/01/18.
@@ -26,11 +29,16 @@ public class PantallaJuego implements Screen {
     //Mundo del juego contiene todo el entorno del juego, camara , luces , objetos , etc
     private Mundo mundo;
 
+    private Stage stage;
+
     //cuando iniciemos el juego empezaremos a ver la pantalla de juego y todo el mundo
     public PantallaJuego(Juego juego){
 
         this.juego=juego;
         mundo=new Mundo();
+
+        stage=new Stage(new FitViewport(Juego.VIRTUAL_WIDTH,Juego.VIRTUAL_HEIGHT));
+
     }
 
 

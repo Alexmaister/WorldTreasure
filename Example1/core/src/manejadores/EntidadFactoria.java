@@ -1,6 +1,7 @@
 package manejadores;
 
 import com.badlogic.ashley.core.Entity;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.math.Vector3;
@@ -65,8 +66,4 @@ public class EntidadFactoria {
         return entidad;
     }
 
-    static{
-
-        modelBuilder=new ModelBuilder();
-    }
 }
