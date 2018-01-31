@@ -1,9 +1,12 @@
 package pantallas;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.mygdx.game.Juego;
+
+import controles.Controles;
 import mundo.Mundo;
 import sun.font.CoreMetrics;
 
@@ -31,13 +34,17 @@ public class PantallaJuego implements Screen {
 
     private Stage stage;
 
+
+    public Controles controles;
+
     //cuando iniciemos el juego empezaremos a ver la pantalla de juego y todo el mundo
     public PantallaJuego(Juego juego){
 
         this.juego=juego;
         mundo=new Mundo();
-
-        stage=new Stage(new FitViewport(Juego.VIRTUAL_WIDTH,Juego.VIRTUAL_HEIGHT));
+        controles=new Controles();
+        stage=new Stage(new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
+        controles.addToStage(stage);
 
     }
 
@@ -52,6 +59,10 @@ public class PantallaJuego implements Screen {
     public void render(float delta) {
 
         mundo.render(delta);
+        stage.act(Gdx.graphics.getDeltaTime());
+        stage.draw();
+
+
     }
 
     @Override

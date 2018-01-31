@@ -22,6 +22,7 @@ import com.badlogic.gdx.math.Vector3;
 
 import componentes.ModeloComponente;
 import componentes.SistemaRenderizado;
+import controles.Controles;
 import manejadores.EntidadFactoria;
 
 /**
@@ -135,23 +136,21 @@ public class Mundo {
         renderizador.begin(camara);
 
        //
-        if(Gdx.input.isTouched())
-        if(Gdx.input.getX()>0){
+        if(Controles.getmovimiento().x>0.01 ) {
+            camara.position.x += 1;
 
-            ModeloComponente entity = motor.getEntities().first().getComponent(ModeloComponente.class);
-            Vector3 posicion=new Vector3();
+        }else if(Controles.getmovimiento().x<-0.01)
 
-            entity.instancia.transform.getTranslation(posicion);
-            //posicion.x+=10;
-            posicion.z-=10;
+            camara.position.x-=1;
 
-            //posicion.z-=10;
-           // camara.position.x+=10;
-            camara.position.z-=10;
-            camara.update();
-            entity.instancia.transform.setTranslation(posicion.x,posicion.y,posicion.z);
+        if (Controles.getmovimiento().y > 0.01) {
 
+            camara.position.z += 1;
+        } else if(Controles.getmovimiento().y < -0.01){
+
+            camara.position.z-=1;
         }
+        camara.update();
        // motor.getEntities().first().getComponent(ModeloComponente.class).instancia.transform.rotate(Vector3.Y,10);
         motor.update(delta);
         renderizador.end();

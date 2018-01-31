@@ -29,12 +29,12 @@ public class Controles {
     public Controles() {
 
         Touchpad.TouchpadStyle stilo = new Touchpad.TouchpadStyle();
-        stilo.knob = new TextureRegionDrawable(new TextureRegion(new Texture("/android/assets/analog.png")));
+        stilo.knob = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("joystick/joystickKnob.png"))));
         stilo.knob.setMinHeight(64);
-        stilo.knob.setMinWidth(64);
-        stilo.background = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("/assets/analog.png"))));
+        stilo.knob.setMinWidth(74);
+        stilo.background = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("joystick/analogInvBase.png"))));
         stilo.background.setMinHeight(64);
-        stilo.background.setMinWidth(64);
+        stilo.background.setMinWidth(74);
 
         jmovimiento = new Touchpad(10, stilo);
         jdireccion = new Touchpad(10, stilo);
@@ -51,7 +51,7 @@ public class Controles {
         jmovimiento.setBounds(15,15,300,300);
         jdireccion.setBounds(stage.getWidth()-315,15,300,300);
         stage.addActor(jmovimiento);
-        stage.addActor(jdireccion);
+       // stage.addActor(jdireccion);
     }
 
 
