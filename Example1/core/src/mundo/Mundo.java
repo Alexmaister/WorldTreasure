@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
+import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.graphics.VertexAttributes;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Material;
@@ -21,6 +22,7 @@ import com.badlogic.gdx.math.Vector3;
 
 import componentes.ModeloComponente;
 import componentes.SistemaRenderizado;
+import manejadores.EntidadFactoria;
 
 /**
  * Created by maister on 18/01/18.
@@ -30,7 +32,7 @@ public class Mundo {
 
     //Camara ortografica para el juego en perspectiva de tercera persona
     private OrthographicCamera camara;
-
+    private PerspectiveCamera camarap;
     //Entorno el cual contendra las luces de entorno :)
     private Environment entorno;
 
@@ -48,12 +50,14 @@ public class Mundo {
 
         motor=new Engine();
 
-        motor.addEntity(
+      /*  motor.addEntity(
                 new Entity().add(
                         new ModeloComponente(
                                 new ModelBuilder()
                                         .createBox(50f,50f,50f,new Material(ColorAttribute.createDiffuse(Color.RED)),VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal),0f,25f,0f)));
+*/
 
+        motor.addEntity(EntidadFactoria.crearSmaug(0,-10,0));
         motor.addEntity(
                 new Entity().add(
                         new ModeloComponente(
@@ -67,9 +71,10 @@ public class Mundo {
 
     private void iniciarCamara(){
 
-        camara=new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
-
-        camara.position.set(70f ,200f, -10f);
+       camara=new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+       // camara=new OrthographicCamera();
+       // camara.position.set(70f ,200f, -10f);
+        camara.position.set(8000f ,10000f, -100f);
         //camara.up.set(0,1,0);
         camara.lookAt(0f,0f,0f);
 
@@ -80,6 +85,13 @@ public class Mundo {
         camara.update();
 
 
+
+        camarap=new PerspectiveCamera(100,Gdx.graphics.getWidth()*100,Gdx.graphics.getHeight()*100);
+        camarap.position.set(0,800,1000);
+        camarap.lookAt(0,800,900);
+        camarap.near=0.3f;
+        camarap.far=60000f;
+        camarap.update();
     }
 
     private void iniciarEntorno(){
@@ -140,7 +152,7 @@ public class Mundo {
             entity.instancia.transform.setTranslation(posicion.x,posicion.y,posicion.z);
 
         }
-        motor.getEntities().first().getComponent(ModeloComponente.class).instancia.transform.rotate(Vector3.Y,10);
+       // motor.getEntities().first().getComponent(ModeloComponente.class).instancia.transform.rotate(Vector3.Y,10);
         motor.update(delta);
         renderizador.end();
     }
