@@ -81,7 +81,7 @@ public class EntidadFactoria {
         Model modelo=new Model(datosmodelo,new TextureProvider.FileTextureProvider());
 
         ModeloComponente componente=new ModeloComponente(modelo,x,y,z);
-        componente.instancia.transform.scale(0.1f,0.1f,0.08f);
+        componente.instancia.transform.scale(0.09f,0.09f,0.05f);
         Entity entidad=new Entity();
 
         entidad.add(componente);
@@ -90,4 +90,20 @@ public class EntidadFactoria {
 
     }
 
+    public static Entity crearKnigth(float x, float y, float z){
+
+        ModelLoader<?> cargadormodelo=new G3dModelLoader(new JsonReader());
+        ModelData datosmodelo= cargadormodelo.loadModelData(Gdx.files.internal("knight/knight.3ds"));
+
+        Model modelo=new Model(datosmodelo,new TextureProvider.FileTextureProvider());
+
+        ModeloComponente componente=new ModeloComponente(modelo,x,y,z);
+        componente.instancia.transform.scale(0.09f,0.09f,0.05f);
+        Entity entidad=new Entity();
+
+        entidad.add(componente);
+
+        return entidad;
+
+    }
 }
