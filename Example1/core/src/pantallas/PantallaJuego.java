@@ -45,7 +45,7 @@ public class PantallaJuego implements Screen {
         controles=new Controles();
         stage=new Stage(new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
         controles.addToStage(stage);
-
+        Gdx.input.setInputProcessor(stage);
     }
 
 

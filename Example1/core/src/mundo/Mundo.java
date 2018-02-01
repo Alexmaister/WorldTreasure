@@ -58,14 +58,15 @@ public class Mundo {
                                         .createBox(50f,50f,50f,new Material(ColorAttribute.createDiffuse(Color.RED)),VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal),0f,25f,0f)));
 */
 
-        motor.addEntity(EntidadFactoria.crearSmaug(0,-10,0));
-        motor.addEntity(
+        //motor.addEntity(EntidadFactoria.crearSmaug(0,-10,0));
+        motor.addEntity(EntidadFactoria.crearKnigth(0,0,0));
+       /* motor.addEntity(
                 new Entity().add(
                         new ModeloComponente(
                                 new ModelBuilder()
-                                        .createBox(2000f,1f,2000f,new Material(ColorAttribute.createDiffuse(Color.BLUE)),VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal),0f,0f,0f)));
+                                        .createBox(2000f,1f,2000f,new Material(ColorAttribute.createDiffuse(Color.BLUE)),VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal),0f,0f,0f));
 
-
+*/
         motor.addSystem(new SistemaRenderizado(renderizador,entorno));
     }
 
@@ -134,21 +135,19 @@ public class Mundo {
        // camara.update();
 
         renderizador.begin(camara);
-
-       //
         if(Controles.getmovimiento().x>0.01 ) {
-            camara.position.x += 1;
+            camara.position.z -= 1;
 
         }else if(Controles.getmovimiento().x<-0.01)
 
-            camara.position.x-=1;
+            camara.position.z+=1;
 
         if (Controles.getmovimiento().y > 0.01) {
 
-            camara.position.z += 1;
+            camara.position.x -= 1;
         } else if(Controles.getmovimiento().y < -0.01){
 
-            camara.position.z-=1;
+            camara.position.x+=1;
         }
         camara.update();
        // motor.getEntities().first().getComponent(ModeloComponente.class).instancia.transform.rotate(Vector3.Y,10);

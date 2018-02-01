@@ -93,12 +93,28 @@ public class EntidadFactoria {
     public static Entity crearKnigth(float x, float y, float z){
 
         ModelLoader<?> cargadormodelo=new G3dModelLoader(new JsonReader());
-        ModelData datosmodelo= cargadormodelo.loadModelData(Gdx.files.internal("knight/knight.3ds"));
+        ModelData datosmodelo= cargadormodelo.loadModelData(Gdx.files.internal("BUCK/BUCK.g3dj"));
 
         Model modelo=new Model(datosmodelo,new TextureProvider.FileTextureProvider());
 
         ModeloComponente componente=new ModeloComponente(modelo,x,y,z);
         componente.instancia.transform.scale(0.09f,0.09f,0.05f);
+        Entity entidad=new Entity();
+
+        entidad.add(componente);
+
+        return entidad;
+
+    }
+    public static Entity crearDragon(float x, float y, float z){
+
+        ModelLoader<?> cargadormodelo=new G3dModelLoader(new JsonReader());
+        ModelData datosmodelo= cargadormodelo.loadModelData(Gdx.files.internal("dragon/dragon.g3dj"));
+
+        Model modelo=new Model(datosmodelo,new TextureProvider.FileTextureProvider());
+
+        ModeloComponente componente=new ModeloComponente(modelo,x,y,z);
+       // componente.instancia.transform.scale(0.09f,0.09f,0.05f);
         Entity entidad=new Entity();
 
         entidad.add(componente);

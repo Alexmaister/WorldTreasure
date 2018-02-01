@@ -1,0 +1,37 @@
+newmtl initialShadingGroup
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd -s 0.1 0.1 Sandstone_Wall_1.jpg
+Ni 1.00
+newmtl lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd -s 0.2 0.2 Ground10_1.jpg
+bump -s 0.333333 0.333333 Bitmap2Material_3_Normal.tga -bm 0.45977
+Ni 1.00
+newmtl lambert4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.41 0.41 0.41
+Tf 1.00 1.00 1.00
+map_Kd -s 0.2 0.2 Stone_10_UV_H_CM_1.jpg
+bump -s 0.2 0.2 Bitmap2Material_3_Normal.tga -bm -0.0574713
+Ni 1.00
+newmtl lambert5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd -s 0.2 0.2 main_wall.jpg
+bump -s 0.2 0.2 Bitmap2Material_3_Normal.tga -bm 0.075
+Ni 1.00
