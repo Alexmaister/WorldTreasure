@@ -16,7 +16,7 @@ import com.badlogic.gdx.physics.bullet.dynamics.btKinematicCharacterController;
     Esta clase nos permitira añadir Movilidad a cualquier entidad
  implementando la interfaz Component de la libreria Ashley
 * */
-class ComponenteMovilidad implements Component{
+public class ComponenteMovilidad implements Component{
 
     // con esto se calcularan las colisiones
     public btConvexShape formafantasma;
