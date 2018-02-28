@@ -17,11 +17,9 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 
-import com.badlogic.gdx.math.Vector3;
-
 
 import componentes.ModeloComponente;
-import componentes.SistemaRenderizado;
+import renderizado.SistemaRenderizado;
 import controles.Controles;
 import manejadores.EntidadFactoria;
 
@@ -59,7 +57,7 @@ public class Mundo {
 */
 
         motor.addEntity(EntidadFactoria.crearSmaug(0,-10,0));
-        //motor.addEntity(EntidadFactoria.crearKnigth(0,0,0));
+        motor.addEntity(EntidadFactoria.crearKnigth(10,0,0));
         motor.addEntity(
                 new Entity().add(
                         new ModeloComponente(

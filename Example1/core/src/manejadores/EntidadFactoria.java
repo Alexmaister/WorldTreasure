@@ -4,11 +4,9 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.ModelLoader;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
 import com.badlogic.gdx.graphics.g3d.model.data.ModelData;
-import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.graphics.g3d.utils.TextureProvider;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.BoundingBox;
@@ -16,10 +14,9 @@ import com.badlogic.gdx.physics.bullet.collision.btBoxShape;
 import com.badlogic.gdx.physics.bullet.collision.btCollisionShape;
 import com.badlogic.gdx.physics.bullet.dynamics.btRigidBody;
 import com.badlogic.gdx.utils.JsonReader;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import componentes.ModeloComponente;
-import fisicas.ComponenteFisica;
+import componentes.ComponenteFisica;
 import fisicas.EstadoMovimiento;
 
 
@@ -93,12 +90,12 @@ public class EntidadFactoria {
     public static Entity crearKnigth(float x, float y, float z){
 
         ModelLoader<?> cargadormodelo=new G3dModelLoader(new JsonReader());
-        ModelData datosmodelo= cargadormodelo.loadModelData(Gdx.files.internal("BUCK/BUCK.g3dj"));
-
+        ModelData datosmodelo= cargadormodelo.loadModelData(Gdx.files.internal("knight/knight.g3dj"));
+        //new AssetManager().load("knight/knight.obj",Model.class);//
         Model modelo=new Model(datosmodelo,new TextureProvider.FileTextureProvider());
 
         ModeloComponente componente=new ModeloComponente(modelo,x,y,z);
-        componente.instancia.transform.scale(0.09f,0.09f,0.05f);
+        componente.instancia.transform.scale(1f,1f,1f);
         Entity entidad=new Entity();
 
         entidad.add(componente);

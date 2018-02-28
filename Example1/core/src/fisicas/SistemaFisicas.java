@@ -17,6 +17,9 @@ import com.badlogic.gdx.physics.bullet.dynamics.btDiscreteDynamicsWorld;
 import com.badlogic.gdx.physics.bullet.dynamics.btRigidBody;
 import com.badlogic.gdx.physics.bullet.dynamics.btSequentialImpulseConstraintSolver;
 
+import componentes.ComponenteFisica;
+import componentes.ComponenteMovilidad;
+
 /**
  * Created by aortiz on 29/01/18.
  */

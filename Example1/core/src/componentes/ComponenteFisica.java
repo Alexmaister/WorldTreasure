@@ -1,8 +1,10 @@
-package fisicas;
+package componentes;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.physics.bullet.collision.btCollisionObject;
 import com.badlogic.gdx.physics.bullet.dynamics.btRigidBody;
+
+import fisicas.EstadoMovimiento;
 
 /**
  * Created by aortiz on 29/01/18.

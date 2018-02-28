@@ -1,8 +1,7 @@
 package personajes;
 
 import componentes.ModeloComponente;
-import controles.Controles;
-import fisicas.ComponenteMovilidad;
+import componentes.ComponenteMovilidad;
 import mundo.Mundo;
 
 import com.badlogic.ashley.core.Engine;
@@ -74,7 +73,7 @@ public class SistemaJugador extends EntitySystem implements EntityListener {
 
         ghost.getTranslation(traslacion);
 
-        modeloComponente.instancia.transform.set();
+        traslacion.set(deltaX,0f,deltaY);
 
     }
     @Override

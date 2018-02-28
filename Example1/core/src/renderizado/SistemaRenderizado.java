@@ -1,4 +1,4 @@
-package componentes;
+package renderizado;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
@@ -7,6 +7,8 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
+
+import componentes.ModeloComponente;
 
 /**
  * Created by maister on 18/01/18.
